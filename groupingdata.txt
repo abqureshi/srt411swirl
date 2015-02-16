@@ -44,6 +44,23 @@ Selection: 1
 
 | Print cran to the console.
 
+> cran <- tbl_df(mydf)
+
+| Try again. Getting it right on the first
+| try is boring anyway! Or, type info() for
+| more options.
+
+| Use rm("mydf") to remove the original
+| dataframe from your workspace.
+
+> rm("mydf")
+
+| Your dedication is inspiring!
+
+  |=========                                                                    |  12%
+
+| Print cran to the console.
+
 > cran
 Source: local data frame [225,468 x 11]
 
@@ -164,3 +181,842 @@ Source: local data frame [6,023 x 2]
 ..         ...        ...
 
 | Great job!
+
+  |====================                                                         |  26%
+
+| Instead of returning a single value,
+| summarize() now returns the mean size for
+| EACH package in our dataset.
+
+...
+
+  |======================                                                       |  28%
+
+| Let's take it a step further. I just
+| opened an R script for you that contains a
+| partially constructed call to summarize().
+| Follow the instructions in the script
+| comments.
+| 
+| When you are ready to move on, save the
+| script and type submit(), or type reset()
+| to reset the script to its original state.
+
+> script_results_identical('pack_sum'); multi_expr_creates_var('pack_sum')
+Error: could not find function "script_results_identical"
+> 
+> summarize()
+Error in summarise_(.data, .dots = lazyeval::lazy_dots(...)) : 
+  argument ".data" is missing, with no default
+> 
+> submit()
+
+| Sourcing your script...
+
+Error in summarise_impl(.data, dots) : 
+  attempt to use zero-length variable name
+
+| Try again. Getting it right on the
+| first try is boring anyway!
+
+| Follow the directions in the script
+| comments very carefully. If R gave
+| you an error above, try to
+| understand what it is telling you.
+| If you get stuck, type reset() to
+| start with a fresh script, then save
+| the script and type submit() when
+| you are ready.
+
+> reset()
+
+| I just reset the script to its
+| original state. If it doesn't
+| refresh immediately, you may need to
+| click on it.
+
+> submit()
+
+| Sourcing your script...
+
+Error in summarise_impl(.data, dots) : 
+  attempt to use zero-length variable name
+
+| Not quite! Try again.
+
+| Follow the directions in the script comments very carefully. If R gave you an error
+| above, try to understand what it is telling you. If you get stuck, type reset() to
+| start with a fresh script, then save the script and type submit() when you are
+| ready.
+
+> submit()
+
+| Sourcing your script...
+
+Error in summarise_impl(.data, dots) : 
+  attempt to use zero-length variable name
+
+| That's not the answer I was looking for, but try again.
+
+| Follow the directions in the script comments very carefully. If R gave you an error
+| above, try to understand what it is telling you. If you get stuck, type reset() to
+| start with a fresh script, then save the script and type submit() when you are
+| ready.
+
+> submit()
+
+| Sourcing your script...
+
+Error in summarise_impl(.data, dots) : 
+  attempt to use zero-length variable name
+
+| Keep trying!
+
+| Follow the directions in the script comments very carefully. If R gave you an error
+| above, try to understand what it is telling you. If you get stuck, type reset() to
+| start with a fresh script, then save the script and type submit() when you are
+| ready.
+
+> 
+> 
+
+> 
+> exit
+Error: object 'exit' not found
+> exit(swirl)
+Error: could not find function "exit"
+> bye()
+
+| Leaving swirl now. Type swirl() to resume.
+
+> 
+> swirl()
+
+| Welcome to swirl!
+
+| Please sign in. If you've been here before, use the same name as you did then. If
+| you are new, call yourself something unique.
+
+What shall I call you? Abu Qureshi
+
+| Would you like to continue with one of these lessons?
+
+1: Getting and Cleaning Data Grouping and Chaining with dplyr
+2: No. Let me start something new.
+
+Selection: 1
+
+| Attemping to load lesson dependencies...
+
+| Package <U+0091>dplyr<U+0092> loaded correctly!
+
+
+
+| Let's take it a step further. I just opened an R script for you that contains a
+| partially constructed call to summarize(). Follow the instructions in the script
+| comments.
+| 
+| When you are ready to move on, save the script and type submit(), or type reset() to
+| reset the script to its original state.
+
+> nxt()
+
+| Resuming lesson...
+
+
+| Let's take it a step further. I just opened an R script for you that contains a
+| partially constructed call to summarize(). Follow the instructions in the script
+| comments.
+| 
+| When you are ready to move on, save the script and type submit(), or type reset() to
+| reset the script to its original state.
+
+> skip()
+
+| I just sourced the following script, which demonstrates one possible solution.
+
+Press Enter when you are ready to continue...
+
+| You're the best!
+
+  |=======================                                                      |  30%
+
+| Print the resulting tbl, pack_sum, to the console to examine its contents.
+
+> pack_sum
+Source: local data frame [6,023 x 5]
+
+       package count unique countries  avg_bytes
+1           A3    25     24        10   62194.96
+2  ABCExtremes    18     17         9   22904.33
+3     ABCoptim    16     15         9   17807.25
+4        ABCp2    18     17        10   30473.33
+5       ACCLMA    15     14         9   33375.53
+6          ACD    17     16        10   99055.29
+7         ACNE    16     15        10   96099.75
+8        ACTCD    15     14         9  134746.27
+9    ADGofTest    47     44        20   12262.91
+10        ADM3    17     16        10 1077203.47
+..         ...   ...    ...       ...        ...
+
+| You got it!
+
+  |=========================                                                    |  32%
+
+| The 'count' column, created with n(), contains the total number of rows (i.e.
+| downloads) for each package. The 'unique' column, created with n_distinct(ip_id),
+| gives the total number of unique downloads for each package, as measured by the
+| number of distinct ip_id's. The 'countries' column, created with
+| n_distinct(country), provides the number of countries in which each package was
+| downloaded. And finally, the 'avg_bytes' column, created with mean(size), contains
+| the mean download size (in bytes) for each package.
+
+...
+
+  |==========================                                                   |  34%
+
+| It's important that you understand
+| how each column of pack_sum was
+| created and what it means. Now that
+| we've summarized the data by
+| individual packages, let's play
+| around with it some more to see what
+| we can learn.
+
+...
+
+  |============================                                                 |  36%
+
+| Naturally, we'd like to know which
+| packages were most popular on the
+| day these data were collected (July
+| 8, 2014). Let's start by isolating
+| the top 1% of packages, based on the
+| total number of downloads as
+| measured by the 'count' column.
+
+...
+
+  |=============================                                                |  38%
+
+| We need to know the value of 'count'
+| that splits the data into the top 1%
+| and bottom 99% of packages based on
+| total downloads. In statistics, this
+| is called the 0.99, or 99%, sample
+| quantile. Use
+| quantile(pack_sum$count, probs =
+| 0.99) to determine this number.
+
+> 
+> quantile(pack_sum$count, probs = 0.99)
+   99% 
+679.56 
+
+| You are doing so well!
+
+  |===============================                                              |  40%
+
+| Now we can isolate only those
+| packages which had more than 679
+| total downloads. Use filter() to
+| select all rows from pack_sum for
+| which 'count' is strictly greater
+| (>) than 679. Store the result in a
+| new variable called top_counts.
+
+> top_counts <- filter(pack_sum, count > 679)
+
+| Nice work!
+
+  |================================                                             |  42%
+
+| Let's take a look at top_counts.
+| Print it to the console.
+
+> 
+> View(top_counts)
+
+| Nice try, but that's not exactly
+| what I was hoping for. Try again.
+| Or, type info() for more options.
+
+| Type top_counts to view its
+| contents.
+
+> top_counts_sorted <- arrange(top_counts, desc(count))
+
+| Almost! Try again. Or, type info()
+| for more options.
+
+| Type top_counts to view its
+| contents.
+
+> 
+> View(top_counts_sorted)
+
+| Not quite right, but keep trying.
+| Or, type info() for more options.
+
+| Type top_counts to view its
+| contents.
+
+> View(top_counts_sorted)
+
+| Try again. Getting it right on the
+| first try is boring anyway! Or, type
+| info() for more options.
+
+| Type top_counts to view its
+| contents.
+
+> 
+> 
+> top_counts_sorted <- arrange(top_counts, desc(count))
+
+| Try again. Getting it right on the
+| first try is boring anyway! Or, type
+| info() for more options.
+
+| Type top_counts to view its
+| contents.
+
+> top_counts
+Source: local data frame [61 x 5]
+
+        package count unique countries
+1           DBI  2599    492        48
+2       Formula   852    777        65
+3         Hmisc   954    812        69
+4          LPCM  2335     17        10
+5          MASS   834    698        66
+6        Matrix   932    801        66
+7  RColorBrewer  1890   1584        79
+8         RCurl  1504   1207        73
+9         RJDBC   809    107        28
+10      RJSONIO   751    585        60
+..          ...   ...    ...       ...
+Variables not shown: avg_bytes (dbl)
+
+| All that practice is paying off!
+
+  |==================================                                           |  44%
+
+| There are only 61 packages in our
+| top 1%, so we'd like to see all of
+| them. Since dplyr only shows us the
+| first 10 rows, we can use the View()
+| function to see more.
+| 
+| Warning: The View() function may not
+| work properly in every programming
+| environment. We highly recommend the
+| use of RStudio for the remainder of
+| this lesson.
+
+...
+
+  |===================================                                          |  46%
+
+| View all 61 rows with
+| View(top_counts). Note that the 'V'
+| in View() is capitalized.
+
+> View(top_counts)
+
+| You nailed it! Good job!
+
+  |=====================================                                        |  48%
+
+| arrange() the rows of top_counts
+| based on the 'count' column and
+| assign the result to a new variable
+| called top_counts_sorted. We want
+| the packages with the highest number
+| of downloads at the top, which means
+| we want 'count' to be in descending
+| order. If you need help, check out
+| ?arrange and/or ?desc.
+
+> top_counts_sorted <- arrange(top_counts, desc(count))
+
+| You're the best!
+
+  |======================================                                       |  50%
+
+| Now use View() again to see all 61
+| rows of top_counts_sorted.
+
+> 
+> View(top_counts_sorted)
+
+| That's a job well done!
+
+  |========================================                                     |  52%
+
+| If we use total number of downloads
+| as our metric for popularity, then
+| the above output shows us the most
+| popular packages downloaded from the
+| RStudio CRAN mirror on July 8, 2014.
+| Not surprisingly, ggplot2 leads the
+| pack with 4602 downloads, followed
+| by Rcpp, plyr, rJava, ....
+
+...
+
+  |==========================================                                   |  54%
+
+| ...And if you keep on going, you'll
+| see swirl at number 43, with 820
+| total downloads. Sweet!
+
+...
+
+  |===========================================                                  |  56%
+
+| Perhaps we're more interested in the
+| number of *unique* downloads on this
+| particular day. In other words, if a
+| package is downloaded ten times in
+| one day from the same computer, we
+| may wish to count that as only one
+| download. That's what the 'unique'
+| column will tell us.
+
+...
+
+  |=============================================                                |  58%
+
+| Like we did with 'count', let's find
+| the 0.99, or 99%, quantile for the
+| 'unique' variable with
+| quantile(pack_sum$unique, probs =
+| 0.99).
+
+> quantile(pack_sum$unique, probs = 0.99)
+99% 
+465 
+
+| You nailed it! Good job!
+
+  |==============================================                               |  60%
+
+| Apply filter() to pack_sum to select
+| all rows corresponding to values of
+| 'unique' that are strictly greater
+| than 465. Assign the result to a
+| variable called top_unique.
+
+> top_unique <- filter(pack_sum, unique > 465)
+
+| You are amazing!
+
+  |================================================                             |  62%
+
+| Let's View() our top contenders!
+
+> View(top_unique)
+
+| You are quite good my friend!
+
+  |=================================================                            |  64%
+
+| Now arrange() top_unique by the
+| 'unique' column, in descending
+| order, to see which packages were
+| downloaded from the greatest number
+| of unique IP addresses. Assign the
+| result to top_unique_sorted.
+
+> 
+> View(top_unique_sorted)
+Error in View : object 'top_unique_sorted' not found
+
+| That's not exactly what I'm looking
+| for. Try again. Or, type info() for
+| more options.
+
+| arrange(top_unique, desc(unique))
+| will arrange the rows of top_unique
+| based on the values of the 'unique'
+| variable, in descending order.
+| Assign the result to
+| top_unique_sorted.
+
+> 
+> top_unique_sorted <- arrange(top_unique, desc(unique))
+
+| You got it!
+
+  |===================================================                          |  66%
+
+| View() the sorted data.
+
+> View(top_unique_sorted)
+
+| You're the best!
+
+  |====================================================                         |  68%
+
+| Now Rcpp is in the lead, followed by
+| stringr, digest, plyr, and ggplot2.
+| swirl moved up a few spaces to
+| number 40, with 698 unique
+| downloads. Nice!
+
+...
+
+  |======================================================                       |  70%
+
+| Our final metric of popularity is
+| the number of distinct countries
+| from which each package was
+| downloaded. We'll approach this one
+| a little differently to introduce
+| you to a method called 'chaining'
+| (or 'piping').
+
+...
+
+  |=======================================================                      |  72%
+
+| Chaining allows you to string
+| together multiple function calls in
+| a way that is compact and readable,
+| while still accomplishing the
+| desired result. To make it more
+| concrete, let's compute our last
+| popularity metric from scratch,
+| starting with our original data.
+
+...
+
+  |=========================================================                    |  74%
+
+| I've opened up a script that
+| contains code similar to what you've
+| seen so far. Don't change anything.
+| Just study it for a minute, make
+| sure you understand everything
+| that's there, then submit() when you
+| are ready to move on.
+
+> skip()
+Source: local data frame [46 x 5]
+
+        package count unique countries
+1          Rcpp  3195   2044        84
+2        digest  2210   1894        83
+3       stringr  2267   1948        82
+4          plyr  2908   1754        81
+5       ggplot2  4602   1680        81
+6    colorspace  1683   1433        80
+7  RColorBrewer  1890   1584        79
+8        scales  1726   1408        77
+9        bitops  1549   1408        76
+10     reshape2  2032   1652        76
+..          ...   ...    ...       ...
+Variables not shown: avg_bytes (dbl)
+
+| I just sourced the following script,
+| which demonstrates one possible
+| solution.
+
+Press Enter when you are ready to continue...
+
+| Nice work!
+
+  |===========================================================                  |  76%
+
+| It's worth noting that we sorted
+| primarily by country, but used
+| avg_bytes (in ascending order) as a
+| tie breaker. This means that if two
+| packages were downloaded from the
+| same number of countries, the
+| package with a smaller average
+| download size received a higher
+| ranking.
+
+...
+
+  |============================================================                 |  78%
+
+| We'd like to accomplish the same
+| result as the last script, but avoid
+| saving our intermediate results.
+| This requires embedding function
+| calls within one another.
+
+...
+
+  |==============================================================               |  80%
+
+| That's exactly what we've done in
+| this script. The result is
+| equivalent, but the code is much
+| less readable and some of the
+| arguments are far away from the
+| function to which they belong.
+| Again, just try to understand what
+| is going on here, then submit() when
+| you are ready to see a better
+| solution.
+
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> 
+> submit()
+
+| Sourcing your script...
+
+Source: local data frame [46 x 5]
+
+        package count unique countries
+1          Rcpp  3195   2044        84
+2        digest  2210   1894        83
+3       stringr  2267   1948        82
+4          plyr  2908   1754        81
+5       ggplot2  4602   1680        81
+6    colorspace  1683   1433        80
+7  RColorBrewer  1890   1584        79
+8        scales  1726   1408        77
+9        bitops  1549   1408        76
+10     reshape2  2032   1652        76
+..          ...   ...    ...       ...
+Variables not shown: avg_bytes (dbl)
+
+| You are doing so well!
+
+  |===============================================================              |  82%
+
+| In this script, we've used a special
+| chaining operator, %>%, which was
+| originally introduced in the
+| magrittr R package and has now
+| become a key component of dplyr. You
+| can pull up the related
+| documentation with ?chain. The
+| benefit of %>% is that it allows us
+| to chain the function calls in a
+| linear fashion. The code to the
+| right of %>% operates on the result
+| from the code to the left of %>%.
+| 
+| Once again, just try to understand
+| the code, then type submit() to
+| continue.
+
+> 
+> submit()
+
+| Sourcing your script...
+
+Source: local data frame [46 x 5]
+
+        package count unique countries
+1          Rcpp  3195   2044        84
+2        digest  2210   1894        83
+3       stringr  2267   1948        82
+4          plyr  2908   1754        81
+5       ggplot2  4602   1680        81
+6    colorspace  1683   1433        80
+7  RColorBrewer  1890   1584        79
+8        scales  1726   1408        77
+9        bitops  1549   1408        76
+10     reshape2  2032   1652        76
+..          ...   ...    ...       ...
+Variables not shown: avg_bytes (dbl)
+
+| All that hard work is paying off!
+
+  |=================================================================            |  84%
+
+| So, the results of the last three
+| scripts are all identical. But, the
+| third script provides a convenient
+| and concise alternative to the more
+| traditional method that we've taken
+| previously, which involves saving
+| results as we go along.
+
+...
+
+  |==================================================================           |  86%
+
+| Once again, let's View() the full
+| data, which has been stored in
+| result3.
+
+> 
+> View(results)
+Error in View : object 'results' not found
+
+| That's not the answer I was looking
+| for, but try again. Or, type info()
+| for more options.
+
+| View(result3) will display the full
+| data, instead of just the first 10
+| rows.
+
+> View(results3)
+Error in View : object 'results3' not found
+
+| Not quite, but you're learning! Try
+| again. Or, type info() for more
+| options.
+
+| View(result3) will display the full
+| data, instead of just the first 10
+| rows.
+
+> 
+> View(result3)
+
+| Your dedication is inspiring!
+
+  |====================================================================         |  88%
+
+| It looks like Rcpp is on top with
+| downloads from 84 different
+| countries, followed by digest,
+| stringr, plyr, and ggplot2. swirl
+| jumped up the rankings again, this
+| time to 27th.
+
+...
+
+  |=====================================================================        |  90%
+
+| To help drive the point home, let's
+| work through a few more examples of
+| chaining.
+
+...
+
+  |=======================================================================      |  92%
+
+| Let's build a chain of dplyr
+| commands one step at a time,
+| starting with the script I just
+| opened for you.
+
+> submit()
+
+| Sourcing your script...
+
+Source: local data frame [225,468 x 0]
+
+
+| Try again. Getting it right on the
+| first try is boring anyway!
+
+| Follow the directions in the script
+| comments very carefully. If R gave
+| you an error above, try to
+| understand what it is telling you.
+| If you get stuck, type reset() to
+| start with a fresh script, then save
+| the script and type submit() when
+| you are ready.
+
+> skip()
+Source: local data frame [225,468 x 4]
+
+   ip_id country      package    size
+1      1      US    htmltools   80589
+2      2      US      tseries  321767
+3      3      US        party  748063
+4      3      US        Hmisc  606104
+5      4      CA       digest   79825
+6      3      US randomForest   77681
+7      3      US         plyr  393754
+8      5      US      whisker   28216
+9      6      CN         Rcpp    5928
+10     7      US     hflights 2206029
+..   ...     ...          ...     ...
+
+| I just sourced the following script,
+| which demonstrates one possible
+| solution.
+
+Press Enter when you are ready to continue...
+
+| That's a job well done!
+
+  |========================================================================     |  94%
+
+| Let's add to the chain.
+
+> 
+> skip()
+
+| I just sourced the following script, which demonstrates one possible solution.
+
+Press Enter when you are ready to continue...
+
+| All that practice is paying off!
+
+  |==========================================================================   |  96%
+
+| A little bit more now.
+
+> 
+> 
+> 
+> 
+> 
+> 
+> skip()
+
+| I just sourced the following script, which demonstrates one possible solution.
+
+Press Enter when you are ready to continue...
+
+| Keep up the great work!
+
+  |===========================================================================  |  98%
+
+| And finish it off.
+
+> 
+> skip()
+
+| I just sourced the following script, which demonstrates one possible solution.
+
+Press Enter when you are ready to continue...
+
+| Your dedication is inspiring!
+
+  |=============================================================================| 100%
+
+| In this lesson, you learned about grouping and chaining using dplyr. You combined
+| some of the things you learned in the previous lesson with these more advanced ideas
+| to produce concise, readable, and highly effective code. Welcome to the wonderful
+| world of dplyr!
+
+...
+
+| Are you currently enrolled in the Coursera course associated with this lesson?
+
+1: Yes
+2: No
+
+Selection: 1
